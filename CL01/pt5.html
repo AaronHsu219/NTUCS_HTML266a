@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>pt5</title>
+	<script type="text/javascript">
+	
+	// class
+	function Student(name, phone, city, isHappy) {
+		this.name = name;
+		this.phone = phone;
+		this.city = city;
+		this.isHappy = isHappy;
+		this.toString = function() {
+			return "學生姓名:" + this.name + "學生電話:" + this.phone;
+		}
+	}
+
+	Student.prototype.sayHello = function(){
+		document.write("My name is ", this.name, "<br>");
+	};	
+
+	// sayHello: function() {
+	// 	document.write("My name is ", this.name, "<br>");
+	// };
+
+	var student1 = new Student("ABC", "0912345678", "Taipei", false);
+	student1.sayHello();
+
+	var student2 = new Student("DEF", "0987654321", "Taipei", true);
+	student2.sayHello();
+
+	console.log(student1.toString());
+	console.log(student2.toString());
+
+	if (student1.isHappy) {
+		console.log("學生1很快樂");
+	} else{
+		console.log("學生1不開心");
+	};
+
+	student2.isHappy? console.log("學生2很快樂"):console.log("學生2不開心");
+
+	</script>
+</head>
+
+<!-- body -->
+
+<body>
+</body>
+
+</html>
