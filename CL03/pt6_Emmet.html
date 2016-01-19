@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>pt6_Emmet</title>
+  <script src="jquery-1.12.0.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $("[href$='.pdf']").fadeOut();
+  });
+
+  $(function() {
+    var $title = $('#title');
+    var isOpened = true;
+    $("button").click(function() {
+      if (isOpened)
+        $title.fadeOut();
+      else
+        $title.fadeIn();
+      isOpened = !isOpened;
+    });
+  });
+  </script>
+  <style>
+  [href$=".pdf"] {
+    background-color: red;
+  }
+  </style>
+</head>
+
+<body>
+  <button>Click</button>
+  <p id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ullam, provident nobis, officia quam optio reiciendis inventore nostrum eum saepe iure omnis nam perferendis illum assumenda tempore. Tenetur, impedit, quaerat!</p>
+  <!-- ul>(li>a{pdffile$.pdf}[href=pdffile$.pdf])*5+(li>a{wordfile$.docx}[href=wordfile$.docx])*3 -->
+  <ul>
+    <li><a href="pdffile1.pdf">pdffile1.pdf</a></li>
+    <li><a href="pdffile2.pdf">pdffile2.pdf</a></li>
+    <li><a href="pdffile3.pdf">pdffile3.pdf</a></li>
+    <li><a href="pdffile4.pdf">pdffile4.pdf</a></li>
+    <li><a href="pdffile5.pdf">pdffile5.pdf</a></li>
+    <li><a href="wordfile1.docx">wordfile1.docx</a></li>
+    <li><a href="wordfile2.docx">wordfile2.docx</a></li>
+    <li><a href="wordfile3.docx">wordfile3.docx</a></li>
+  </ul>
+  <!-- ul>(li>a{pdffile$.pdf}[href=""])*2 -->
+  <ul>
+    <li><a href="">pdffile1.pdf</a></li>
+    <li><a href="">pdffile2.pdf</a></li>
+  </ul>
+</body>
+
+</html>
