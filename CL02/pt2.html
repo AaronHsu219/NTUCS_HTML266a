@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>pt2</title>
+  <script type="text/javascript">
+  // Employee
+  function Employee(name, baseSalary) {
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
+
+  Employee.prototype.getSalary = function() {
+    return this.baseSalary;
+  }
+
+  // Sales 
+  function Sales(name, baseSalary, performance) {
+    Employee.call(this, name, baseSalary);
+    this.performance = performance;
+    this.baseSalary = baseSalary;
+  }
+
+  Sales.prototype.getSalary = function() {
+    //return this.baseSalary + this.performance * 0.03;
+    return Employee.prototype.getSalary.apply(this) +
+      this.performance * 0.03;
+  }
+
+  // Manager
+  function Manager(name, baseSalary, GS) {
+    Employee.call(this, name, baseSalary);
+    this.GS = GS;
+    this.baseSalary = baseSalary;
+  }
+
+  Manager.prototype.getSalary = function() {
+    // return this.baseSalary + this.GS;
+    return Employee.prototype.getSalary.apply(this) +
+      this.GS;
+  }
+
+
+  var resnick = new Employee("YH", 22000);
+  console.log(resnick.getSalary());
+
+  var sales = new Sales("YH_sales", 22000, 300000)
+  console.log(sales.getSalary());
+  console.log(sales)
+
+  var manager = new Manager("YH_manager", 22000, 10000)
+  console.log(manager.getSalary());
+  console.log(manager);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

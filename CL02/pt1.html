@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>pt1</title>
+  <script type="text/javascript">
+  function A(a) {
+    this.varA = a;
+  }
+
+  A.prototype = {
+    varA: null,
+    doSomething: function() {...
+    }
+  }
+
+
+  function B(a, b) {
+    A.call(this, a); // super(3) in JAVA
+    this.varB = b;
+  }
+
+  B.prototype = {
+    varB: null,
+    doSomething: function() {
+      A.prototype.doSomething.apply(this, args);
+    }
+  }
+
+  function add(a, b, c) {
+    add.call(there, a, b, c)
+  }
+
+
+  add.call(this, a, b, c)
+
+
+  Student.prototype = new Person();
+  Student.prototype.constructor = Student;
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
